@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desconectados - El Musical</title>
+  <meta name="description" content="Desconectados El Musical - Un musical adolescente que llega a Uruguay. Una producción de Las Ophelias.">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Inter:wght@300;400;500;600&family=Permanent+Marker&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header" id="header">
+    <div class="site-logo">
+      <a href="#top">DESCONECTADOS</a>
+    </div>
+    <nav class="nav-main">
+      <ul class="nav-links">
+        <li><a href="#sobre">LA OBRA</a></li>
+        <li><a href="#elenco">ELENCO</a></li>
+        <li><a href="#multimedia">MULTIMEDIA</a></li>
+        <li><a href="#contacto">CONTACTO</a></li>
+      </ul>
+      <a href="#entradas" class="btn-nav-tickets">ENTRADAS</a>
+      <button class="nav-hamburger" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#sobre">LA OBRA</a></li>
+      <li><a href="#elenco">ELENCO</a></li>
+      <li><a href="#multimedia">MULTIMEDIA</a></li>
+      <li><a href="#contacto">CONTACTO</a></li>
+      <li><a href="#entradas" class="btn-primary">ENTRADAS</a></li>
+    </ul>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="hero-bg" style="background-image: url('images/logo-desconectados.webp');"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <a href="#entradas" class="btn-primary btn-glow">COMPRÁ TUS ENTRADAS</a>
+    </div>
+    <div class="scroll-indicator"></div>
+  </section>
+
+  <!-- SOBRE LA OBRA -->
+  <section class="section-dark" id="sobre">
+    <div class="section">
+      <h2 class="section-title">La Obra</h2>
+      <div class="section-divider"></div>
+      <p class="section-text">
+        <strong>Desconectados</strong> es un musical original escrito, interpretado y producido por adolescentes uruguayos que se mete de lleno en la vida detrás de las pantallas. Manipulación, presión social, identidad, sexting, inteligencia artificial, y más de eso que nos toca vivir día a día.
+      </p>
+      <p class="section-text">
+        A través de canciones originales y actuaciones excepcionales, la obra cuenta la historia de un grupo de jóvenes que descubren, a fuerza de caer y levantarse, que las conexiones más importantes no se hacen a través de un dispositivo. Que a veces hay que tocar fondo para volver a ver, y que desde lo más hondo también se puede crecer.
+      </p>
+      <p class="section-text">
+        Una obra que te va a hacer reír, emocionarte y reflexionar.<br>
+        Para adolescentes, para padres, para todos.
+      </p>
+      <p class="section-closing">...porque desconectados, conectamos.</p>
+    </div>
+  </section>
+
+  <!-- ENTRADAS -->
+  <section class="section-accent" id="entradas">
+    <div class="section">
+      <h2 class="section-title">Entradas</h2>
+      <div class="section-divider"></div>
+      <div class="tickets-container">
+        <div class="ticket-info">
+          <div class="ticket-detail">
+            <span class="ticket-label">FECHA</span>
+            <span class="ticket-value">Próximamente</span>
+          </div>
+          <div class="ticket-detail">
+            <span class="ticket-label">LUGAR</span>
+            <span class="ticket-value">Montevideo, Uruguay</span>
+          </div>
+          <div class="ticket-detail">
+            <span class="ticket-label">HORARIO</span>
+            <span class="ticket-value">Próximamente</span>
+          </div>
+        </div>
+        <a href="#" class="btn-primary btn-glow btn-large" id="ticketLink">COMPRAR ENTRADAS</a>
+        <p class="tickets-note">Las entradas estarán disponibles próximamente. ¡Seguinos en redes para enterarte primero!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ELENCO -->
+  <section class="section-dark" id="elenco">
+    <div class="section">
+      <h2 class="section-title">Elenco</h2>
+      <div class="section-divider"></div>
+      <div class="cast-grid">
+        <div class="cast-card">
+          <div class="cast-photo">
+            <img src="images/paula-elutchanz.webp" alt="Paula Elutchanz">
+          </div>
+          <h3 class="cast-name">Paula Elutchanz</h3>
+          <p class="cast-role">Martina</p>
+        </div>
+        <div class="cast-card">
+          <div class="cast-photo">
+            <img src="images/jose-fabini.webp" alt="José Fabini">
+          </div>
+          <h3 class="cast-name">José Fabini</h3>
+          <p class="cast-role">Lorenzo</p>
+        </div>
+        <div class="cast-card">
+          <div class="cast-photo">
+            <img src="images/victoria-mendiondo.webp" alt="Victoria Mendiondo">
+          </div>
+          <h3 class="cast-name">Victoria Mendiondo</h3>
+          <p class="cast-role">Pilar</p>
+        </div>
+        <div class="cast-card">
+          <div class="cast-photo">
+            <img src="images/mauricio-pereyra.webp" alt="Mauricio Pereyra">
+          </div>
+          <h3 class="cast-name">Mauricio Pereyra</h3>
+          <p class="cast-role">Nacho</p>
+        </div>
+        <div class="cast-card">
+          <div class="cast-photo">
+            <img src="images/diego-cardoso.webp" alt="Diego Cardoso">
+          </div>
+          <h3 class="cast-name">Diego Cardoso</h3>
+          <p class="cast-role">Thiago</p>
+        </div>
+        <div class="cast-card">
+          <div class="cast-photo">
+            <img src="images/evangelina-rodriguez.webp" alt="Evangelina Rodriguez">
+          </div>
+          <h3 class="cast-name">Evangelina Rodriguez</h3>
+          <p class="cast-role">Isabela</p>
+        </div>
+        <div class="cast-card">
+          <div class="cast-photo">
+            <img src="images/maite-zubillaga.webp" alt="Maite Zubillaga">
+          </div>
+          <h3 class="cast-name">Maite Zubillaga</h3>
+          <p class="cast-role">Zoe</p>
+        </div>
+        <div class="cast-card">
+          <div class="cast-photo">
+            <img src="images/lucas-bas.webp" alt="Lucas Bas">
+          </div>
+          <h3 class="cast-name">Lucas Bas</h3>
+          <p class="cast-role">Bauti</p>
+        </div>
+        <div class="cast-card">
+          <div class="cast-photo">
+            <img src="images/julieta-mancini.webp" alt="Julieta Mancini">
+          </div>
+          <h3 class="cast-name">Julieta Mancini</h3>
+          <p class="cast-role">Andrea</p>
+        </div>
+        <div class="cast-card">
+          <div class="cast-photo">
+            <img src="images/josefina-bonner.webp" alt="Josefina Bonner">
+          </div>
+          <h3 class="cast-name">Josefina Bonner</h3>
+          <p class="cast-role">Camila</p>
+        </div>
+        <div class="cast-card">
+          <div class="cast-photo">
+            <img src="images/joaquin-fleitas.webp" alt="Joaquín Fleitas">
+          </div>
+          <h3 class="cast-name">Joaquín Fleitas</h3>
+          <p class="cast-role">Francisco</p>
+        </div>
+      </div>
+
+      <h2 class="section-title" style="margin-top: 80px;">Detrás de Escena</h2>
+      <div class="section-divider"></div>
+      <div class="crew-grid">
+        <div class="crew-item crew-with-photo">
+          <img src="images/nicolas-amorin.webp" alt="Nicolas Amorin" class="crew-photo">
+          <span class="crew-name">Nicolas Amorin</span>
+          <span class="crew-role">Diseño de Iluminación</span>
+        </div>
+        <div class="crew-item crew-with-photo">
+          <img src="images/lara-berman.webp" alt="Lara Berman" class="crew-photo">
+          <span class="crew-name">Lara Berman</span>
+          <span class="crew-role">Dirección<br>Producción General</span>
+        </div>
+        <div class="crew-item crew-with-photo">
+          <img src="images/paula-elutchanz.webp" alt="Paula Elutchanz" class="crew-photo">
+          <span class="crew-name">Paula Elutchanz</span>
+          <span class="crew-role">Composición Musical<br>Asistencia Dirección</span>
+        </div>
+        <div class="crew-item">
+          <div class="crew-placeholder"></div>
+          <span class="crew-name">Paula Elutchanz & Lara Berman</span>
+          <span class="crew-role">Libreto</span>
+        </div>
+        <div class="crew-item crew-with-photo">
+          <img src="images/martina-herrera.webp" alt="Martina Herrera" class="crew-photo">
+          <span class="crew-name">Martina Herrera</span>
+          <span class="crew-role">Dirección Musical</span>
+        </div>
+        <div class="crew-item crew-with-photo">
+          <img src="images/nella.webp" alt="Nella" class="crew-photo">
+          <span class="crew-name">Nella</span>
+          <span class="crew-role">Diseño Escenografía</span>
+        </div>
+        <div class="crew-item">
+          <div class="crew-placeholder"></div>
+          <span class="crew-name">Johanna</span>
+          <span class="crew-role">Diseño de Vestuario</span>
+        </div>
+        <div class="crew-item crew-with-photo">
+          <img src="images/juli.webp" alt="Juli" class="crew-photo">
+          <span class="crew-name">Juli</span>
+          <span class="crew-role">Dirección Coreográfica</span>
+        </div>
+        <div class="crew-item">
+          <div class="crew-placeholder"></div>
+          <span class="crew-name">Las Ophelias</span>
+          <span class="crew-role">Productora</span>
+        </div>
+        <div class="crew-item">
+          <div class="crew-placeholder"></div>
+          <span class="crew-name">Tavo Carrozini</span>
+          <span class="crew-role">Dirección de Efectos Visuales</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MULTIMEDIA -->
+  <section class="section-darker" id="multimedia">
+    <div class="section">
+      <h2 class="section-title">Multimedia</h2>
+      <div class="section-divider"></div>
+      <div class="media-grid">
+        <div class="media-item media-placeholder">
+          <div class="media-play-icon">▶</div>
+          <p>Trailer próximamente</p>
+        </div>
+        <div class="media-item media-placeholder">
+          <div class="media-play-icon">📸</div>
+          <p>Fotos próximamente</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRENSA / QUOTES -->
+  <section class="section-dark" id="prensa">
+    <div class="section">
+      <h2 class="section-title">Prensa</h2>
+      <div class="section-divider"></div>
+      <div class="quotes-container">
+        <div class="quote-card">
+          <p class="quote-text">"Una experiencia teatral única que captura la esencia de la adolescencia moderna."</p>
+          <span class="quote-source">— Próximamente</span>
+        </div>
+        <div class="quote-card">
+          <p class="quote-text">"Un musical que logra conectar con todas las generaciones del público."</p>
+          <span class="quote-source">— Próximamente</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="section-darker" id="contacto">
+    <div class="section">
+      <h2 class="section-title">Contacto</h2>
+      <div class="section-divider"></div>
+      <div class="contact-container">
+        <p class="section-text">Para consultas sobre la obra, prensa, o colaboraciones, escribinos.</p>
+        <div class="social-links">
+          <a href="https://www.instagram.com/desconectados_elmusical/" target="_blank" class="social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            <span>Instagram</span>
+          </a>
+          <a href="mailto:contacto@lasophelias.com" class="social-link" aria-label="Email">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            <span>Email</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-logo">DESCONECTADOS EL MUSICAL</div>
+      <p class="footer-production">Una producción de <a href="https://www.lasophelias.com" target="_blank">Las Ophelias</a></p>
+      <p class="footer-copy">&copy; 2026 Las Ophelias. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <a href="#top" class="back-to-top" aria-label="Volver arriba">
+    <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+  </a>
+
+  <script>
+    // Hamburger menu toggle
+    const hamburger = document.querySelector('.nav-hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      mobileMenu.classList.toggle('open');
+    });
+
+    // Close mobile menu on link click
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        mobileMenu.classList.remove('open');
+      });
+    });
+
+    // Header background on scroll
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Reveal on scroll animation
+    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.cast-card, .highlight-item, .quote-card, .crew-item').forEach(el => {
+      el.classList.add('reveal');
+      observer.observe(el);
+    });
+  </script>
+
+</body>
+</html>
