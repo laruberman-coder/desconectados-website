@@ -555,8 +555,85 @@ img {
   aspect-ratio: 3 / 4;
   border-radius: 8px;
   margin: 0 auto 12px;
-  background: linear-gradient(135deg, rgba(60, 100, 255, 0.1), rgba(60, 100, 255, 0.05));
-  border: 2px solid rgba(60, 100, 255, 0.15);
+  background: linear-gradient(135deg, #060a1f 0%, #0d1540 50%, #060a1f 100%);
+  border: 1px solid rgba(60, 100, 255, 0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated scanlines */
+.crew-placeholder::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    rgba(60, 100, 255, 0.04) 3px,
+    rgba(60, 100, 255, 0.04) 4px
+  );
+  z-index: 1;
+}
+
+/* Glowing person silhouette */
+.crew-placeholder::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 55%;
+  height: 80%;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 80'%3E%3Cellipse cx='30' cy='20' rx='13' ry='15' fill='none' stroke='rgba(77,142,255,0.25)' stroke-width='1.5'/%3E%3Cpath d='M8 80 Q8 48 30 45 Q52 48 52 80' fill='none' stroke='rgba(77,142,255,0.25)' stroke-width='1.5'/%3E%3C/svg%3E") no-repeat center bottom;
+  background-size: contain;
+  z-index: 2;
+  animation: crewGlow 3s ease-in-out infinite;
+}
+
+@keyframes crewGlow {
+  0%, 100% { opacity: 0.5; filter: drop-shadow(0 0 4px rgba(77, 142, 255, 0.3)); }
+  50% { opacity: 1; filter: drop-shadow(0 0 12px rgba(77, 142, 255, 0.7)); }
+}
+
+/* Scan line sweep */
+.crew-placeholder .scan-line {
+  position: absolute;
+  top: -10%;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  background: linear-gradient(to bottom, transparent, rgba(60, 100, 255, 0.08), transparent);
+  z-index: 3;
+  animation: scanSweep 4s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes scanSweep {
+  0% { top: -30%; }
+  100% { top: 110%; }
+}
+
+/* Blinking corner brackets */
+.crew-placeholder .bracket-tl,
+.crew-placeholder .bracket-tr,
+.crew-placeholder .bracket-bl,
+.crew-placeholder .bracket-br {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  z-index: 4;
+  opacity: 0.5;
+  animation: bracketBlink 2.5s ease-in-out infinite;
+}
+.crew-placeholder .bracket-tl { top: 8px; left: 8px; border-top: 1.5px solid #3b7dff; border-left: 1.5px solid #3b7dff; }
+.crew-placeholder .bracket-tr { top: 8px; right: 8px; border-top: 1.5px solid #3b7dff; border-right: 1.5px solid #3b7dff; animation-delay: 0.6s; }
+.crew-placeholder .bracket-bl { bottom: 8px; left: 8px; border-bottom: 1.5px solid #3b7dff; border-left: 1.5px solid #3b7dff; animation-delay: 1.2s; }
+.crew-placeholder .bracket-br { bottom: 8px; right: 8px; border-bottom: 1.5px solid #3b7dff; border-right: 1.5px solid #3b7dff; animation-delay: 1.8s; }
+
+@keyframes bracketBlink {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.9; }
 }
 
 .crew-name {
