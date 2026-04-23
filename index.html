@@ -3,6 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B7B6DJH3WZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-B7B6DJH3WZ');
+  </script>
   <title>Desconectados - El Musical</title>
   <meta name="description" content="Desconectados El Musical - Un musical adolescente que llega a Uruguay. Una producción de Las Ophelias.">
   <link rel="stylesheet" href="css/styles.css">
@@ -23,7 +31,7 @@
         <li><a href="#elenco">ELENCO</a></li>
         <li><a href="#contacto">CONTACTO</a></li>
       </ul>
-      <a href="https://redtickets.uy/evento/DESCONECTADOS---El-Musical/28811/" target="_blank" class="btn-nav-tickets">ENTRADA</a>
+      <a href="https://redtickets.uy/evento/DESCONECTADOS---El-Musical/28811/" target="_blank" class="btn-nav-tickets" onclick="gtag('event', 'purchase_click', {event_category: 'tickets', event_label: 'nav_header'})">ENTRADA</a>
       <button class="nav-hamburger" aria-label="Abrir menú">
         <span></span><span></span><span></span>
       </button>
@@ -36,7 +44,7 @@
       <li><a href="#sobre">LA OBRA</a></li>
       <li><a href="#elenco">ELENCO</a></li>
       <li><a href="#contacto">CONTACTO</a></li>
-      <li><a href="https://redtickets.uy/evento/DESCONECTADOS---El-Musical/28811/" target="_blank" class="btn-primary">ENTRADA</a></li>
+      <li><a href="https://redtickets.uy/evento/DESCONECTADOS---El-Musical/28811/" target="_blank" class="btn-primary" onclick="gtag('event', 'purchase_click', {event_category: 'tickets', event_label: 'nav_mobile'})">ENTRADA</a></li>
     </ul>
   </div>
 
@@ -45,7 +53,7 @@
     <div class="hero-bg" style="background-image: url('images/logo-desconectados.webp');"></div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <a href="https://redtickets.uy/evento/DESCONECTADOS---El-Musical/28811/" target="_blank" class="btn-primary btn-glow">COMPRÁ TUS ENTRADAS</a>
+      <a href="https://redtickets.uy/evento/DESCONECTADOS---El-Musical/28811/" target="_blank" class="btn-primary btn-glow" onclick="gtag('event', 'purchase_click', {event_category: 'tickets', event_label: 'hero'})">COMPRÁ TUS ENTRADAS</a>
     </div>
     <div class="scroll-indicator"></div>
   </section>
@@ -89,7 +97,7 @@
             <span class="ticket-value">20:30</span>
           </div>
         </div>
-        <a href="https://redtickets.uy/evento/DESCONECTADOS---El-Musical/28811/" target="_blank" class="btn-primary btn-glow btn-large" id="ticketLink">COMPRAR ENTRADAS</a>
+        <a href="https://redtickets.uy/evento/DESCONECTADOS---El-Musical/28811/" target="_blank" class="btn-primary btn-glow btn-large" id="ticketLink" onclick="gtag('event', 'purchase_click', {event_category: 'tickets', event_label: 'section_entradas'})">COMPRAR ENTRADAS</a>
       </div>
     </div>
   </section>
