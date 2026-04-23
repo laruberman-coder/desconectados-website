@@ -404,31 +404,38 @@ img {
 }
 
 .ticket-info {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
   gap: 0;
   margin-bottom: 40px;
+  width: 100%;
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
 }
 
+.ticket-info .ticket-detail {
+  flex: 1;
+}
+
 .ticket-info .ticket-detail:first-child {
   text-align: right;
-  padding-right: 50px;
+  padding-right: 40px;
 }
 
 .ticket-detail-center {
+  flex: 1;
   text-align: center;
-  padding: 0 50px;
+  padding: 0 40px;
   border-left: 1px solid rgba(60, 100, 255, 0.2);
   border-right: 1px solid rgba(60, 100, 255, 0.2);
 }
 
 .ticket-info .ticket-detail:last-child {
   text-align: left;
-  padding-left: 50px;
+  padding-left: 40px;
 }
 
 .ticket-detail {
