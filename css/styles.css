@@ -897,9 +897,8 @@ img {
 /* ===== REVEAL ANIMATIONS ===== */
 .reveal {
   opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
+  transform: translateY(15px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
 .reveal.revealed {
@@ -907,70 +906,39 @@ img {
   transform: translateY(0);
 }
 
-/* Section titles slide and fade with subtle blur */
-.section-title.reveal {
-  transform: translateY(30px);
-  filter: blur(6px);
-  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1), filter 0.9s ease;
+/* Cast cards: gentle fade-in only, no movement (avoids rigid feel) */
+.cast-card.reveal {
+  transform: none;
+  transition: opacity 0.9s ease-out;
 }
 
-.section-title.reveal.revealed {
-  filter: blur(0);
+/* Subtle stagger - small delays, won't feel jumpy */
+.cast-card.reveal:nth-child(1) { transition-delay: 0s; }
+.cast-card.reveal:nth-child(2) { transition-delay: 0.04s; }
+.cast-card.reveal:nth-child(3) { transition-delay: 0.08s; }
+.cast-card.reveal:nth-child(4) { transition-delay: 0.12s; }
+.cast-card.reveal:nth-child(n+5) { transition-delay: 0.15s; }
+
+/* Crew cards: same gentle fade */
+.crew-item.reveal {
+  transform: none;
+  transition: opacity 0.9s ease-out;
 }
 
-/* Section dividers expand from center */
-.section-divider.reveal {
-  transform: scaleX(0);
-  transform-origin: center;
-  transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s, opacity 0.6s ease 0.2s;
-}
+.crew-item.reveal:nth-child(1) { transition-delay: 0s; }
+.crew-item.reveal:nth-child(2) { transition-delay: 0.04s; }
+.crew-item.reveal:nth-child(3) { transition-delay: 0.08s; }
+.crew-item.reveal:nth-child(4) { transition-delay: 0.12s; }
+.crew-item.reveal:nth-child(n+5) { transition-delay: 0.15s; }
 
-.section-divider.reveal.revealed {
-  transform: scaleX(1);
-}
-
-/* Section text fades in with smaller travel */
-.section-text.reveal,
-.section-closing.reveal {
-  transform: translateY(20px);
-}
-
-/* Cast card stagger - works for any number of cards */
-.cast-card.reveal:nth-child(1) { transition-delay: 0.05s; }
-.cast-card.reveal:nth-child(2) { transition-delay: 0.1s; }
-.cast-card.reveal:nth-child(3) { transition-delay: 0.15s; }
-.cast-card.reveal:nth-child(4) { transition-delay: 0.2s; }
-.cast-card.reveal:nth-child(5) { transition-delay: 0.25s; }
-.cast-card.reveal:nth-child(6) { transition-delay: 0.3s; }
-.cast-card.reveal:nth-child(7) { transition-delay: 0.35s; }
-.cast-card.reveal:nth-child(8) { transition-delay: 0.4s; }
-.cast-card.reveal:nth-child(9) { transition-delay: 0.45s; }
-.cast-card.reveal:nth-child(10) { transition-delay: 0.5s; }
-.cast-card.reveal:nth-child(11) { transition-delay: 0.55s; }
-.cast-card.reveal:nth-child(12) { transition-delay: 0.6s; }
-
-/* Crew item stagger */
-.crew-item.reveal:nth-child(1) { transition-delay: 0.05s; }
-.crew-item.reveal:nth-child(2) { transition-delay: 0.1s; }
-.crew-item.reveal:nth-child(3) { transition-delay: 0.15s; }
-.crew-item.reveal:nth-child(4) { transition-delay: 0.2s; }
-.crew-item.reveal:nth-child(5) { transition-delay: 0.25s; }
-.crew-item.reveal:nth-child(6) { transition-delay: 0.3s; }
-.crew-item.reveal:nth-child(7) { transition-delay: 0.35s; }
-.crew-item.reveal:nth-child(8) { transition-delay: 0.4s; }
-.crew-item.reveal:nth-child(9) { transition-delay: 0.45s; }
-.crew-item.reveal:nth-child(10) { transition-delay: 0.5s; }
-.crew-item.reveal:nth-child(11) { transition-delay: 0.55s; }
-.crew-item.reveal:nth-child(12) { transition-delay: 0.6s; }
-
-/* Ticket details stagger */
-.ticket-detail.reveal:nth-child(1) { transition-delay: 0.05s; }
-.ticket-detail.reveal:nth-child(2) { transition-delay: 0.15s; }
-.ticket-detail.reveal:nth-child(3) { transition-delay: 0.25s; }
+/* Ticket details slight stagger */
+.ticket-detail.reveal:nth-child(1) { transition-delay: 0s; }
+.ticket-detail.reveal:nth-child(2) { transition-delay: 0.1s; }
+.ticket-detail.reveal:nth-child(3) { transition-delay: 0.2s; }
 
 .highlight-item.reveal:nth-child(1) { transition-delay: 0s; }
-.highlight-item.reveal:nth-child(2) { transition-delay: 0.15s; }
-.highlight-item.reveal:nth-child(3) { transition-delay: 0.3s; }
+.highlight-item.reveal:nth-child(2) { transition-delay: 0.1s; }
+.highlight-item.reveal:nth-child(3) { transition-delay: 0.2s; }
 
 /* Subtle glow pulse for the entradas CTA buttons */
 @keyframes ctaGlow {
@@ -1041,19 +1009,47 @@ img {
     padding: 70px 20px;
   }
 
+  .hero {
+    min-height: auto;
+    height: auto;
+    padding-top: 80px;
+    padding-bottom: 60px;
+  }
+
   .hero-bg {
-    background-size: 130% auto;
-    background-position: center 40%;
+    position: relative;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1.05;
+    background-size: cover;
+    background-position: center center;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    bottom: 0;
+    height: 30%;
+    top: auto;
+    background: linear-gradient(to bottom, transparent 0%, rgba(3, 5, 16, 0.6) 60%, #0a0a1a 100%);
   }
 
   .hero-content {
-    bottom: 15%;
+    position: relative;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    margin-top: -80px;
+    z-index: 3;
   }
 
   .btn-primary {
     padding: 12px 30px;
     font-size: 0.7rem;
     white-space: nowrap;
+  }
+
+  .scroll-indicator {
+    display: none;
   }
 
   .highlight-box {
