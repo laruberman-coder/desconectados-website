@@ -103,6 +103,13 @@
     </div>
   </section>
 
+  <!-- TEASER VIDEO -->
+  <section class="section-dark teaser-section" id="teaser">
+    <div class="teaser-wrap">
+      <div class="teaser-video" id="teaserVideo" data-video-ids="p9kO0feIBCY,eQwDLDJ-bjs"></div>
+    </div>
+  </section>
+
   <!-- ENTRADAS -->
   <section class="section-accent" id="entradas">
     <div class="section">
@@ -387,6 +394,72 @@
       el.classList.add('reveal');
       observer.observe(el);
     });
+
+    // Teaser video: pick one randomly, lazy-load with IFrame API, autoplay on scroll
+    (function() {
+      const wrap = document.getElementById('teaserVideo');
+      if (!wrap) return;
+      const ids = (wrap.dataset.videoIds || '').split(',').map(s => s.trim()).filter(Boolean);
+      if (!ids.length) return;
+      const videoId = ids[Math.floor(Math.random() * ids.length)];
+
+      let player = null;
+      let apiLoaded = false;
+      let pendingPlay = false;
+
+      function ensureApi() {
+        if (apiLoaded) return;
+        apiLoaded = true;
+        const tag = document.createElement('script');
+        tag.src = 'https://www.youtube.com/iframe_api';
+        document.head.appendChild(tag);
+      }
+
+      window.onYouTubeIframeAPIReady = function() {
+        const div = document.createElement('div');
+        div.id = 'ytPlayer';
+        wrap.appendChild(div);
+        player = new YT.Player('ytPlayer', {
+          videoId: videoId,
+          playerVars: {
+            autoplay: 0,
+            mute: 1,
+            controls: 1,
+            rel: 0,
+            modestbranding: 1,
+            playsinline: 1
+          },
+          events: {
+            onReady: function() {
+              if (pendingPlay) {
+                player.mute();
+                player.playVideo();
+              }
+            }
+          }
+        });
+      };
+
+      const teaserObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            ensureApi();
+            if (player && player.playVideo) {
+              player.mute();
+              player.playVideo();
+            } else {
+              pendingPlay = true;
+            }
+          } else {
+            if (player && player.pauseVideo) {
+              player.pauseVideo();
+            }
+          }
+        });
+      }, { threshold: 0.4 });
+
+      teaserObserver.observe(wrap);
+    })();
   </script>
 
 </body>
