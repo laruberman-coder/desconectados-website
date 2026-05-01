@@ -897,8 +897,9 @@ img {
 /* ===== REVEAL ANIMATIONS ===== */
 .reveal {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
 }
 
 .reveal.revealed {
@@ -906,16 +907,116 @@ img {
   transform: translateY(0);
 }
 
-.cast-card.reveal:nth-child(1) { transition-delay: 0s; }
+/* Section titles slide and fade with subtle blur */
+.section-title.reveal {
+  transform: translateY(30px);
+  filter: blur(6px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1), filter 0.9s ease;
+}
+
+.section-title.reveal.revealed {
+  filter: blur(0);
+}
+
+/* Section dividers expand from center */
+.section-divider.reveal {
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s, opacity 0.6s ease 0.2s;
+}
+
+.section-divider.reveal.revealed {
+  transform: scaleX(1);
+}
+
+/* Section text fades in with smaller travel */
+.section-text.reveal,
+.section-closing.reveal {
+  transform: translateY(20px);
+}
+
+/* Cast card stagger - works for any number of cards */
+.cast-card.reveal:nth-child(1) { transition-delay: 0.05s; }
 .cast-card.reveal:nth-child(2) { transition-delay: 0.1s; }
-.cast-card.reveal:nth-child(3) { transition-delay: 0.2s; }
-.cast-card.reveal:nth-child(4) { transition-delay: 0.3s; }
-.cast-card.reveal:nth-child(5) { transition-delay: 0.4s; }
-.cast-card.reveal:nth-child(6) { transition-delay: 0.5s; }
+.cast-card.reveal:nth-child(3) { transition-delay: 0.15s; }
+.cast-card.reveal:nth-child(4) { transition-delay: 0.2s; }
+.cast-card.reveal:nth-child(5) { transition-delay: 0.25s; }
+.cast-card.reveal:nth-child(6) { transition-delay: 0.3s; }
+.cast-card.reveal:nth-child(7) { transition-delay: 0.35s; }
+.cast-card.reveal:nth-child(8) { transition-delay: 0.4s; }
+.cast-card.reveal:nth-child(9) { transition-delay: 0.45s; }
+.cast-card.reveal:nth-child(10) { transition-delay: 0.5s; }
+.cast-card.reveal:nth-child(11) { transition-delay: 0.55s; }
+.cast-card.reveal:nth-child(12) { transition-delay: 0.6s; }
+
+/* Crew item stagger */
+.crew-item.reveal:nth-child(1) { transition-delay: 0.05s; }
+.crew-item.reveal:nth-child(2) { transition-delay: 0.1s; }
+.crew-item.reveal:nth-child(3) { transition-delay: 0.15s; }
+.crew-item.reveal:nth-child(4) { transition-delay: 0.2s; }
+.crew-item.reveal:nth-child(5) { transition-delay: 0.25s; }
+.crew-item.reveal:nth-child(6) { transition-delay: 0.3s; }
+.crew-item.reveal:nth-child(7) { transition-delay: 0.35s; }
+.crew-item.reveal:nth-child(8) { transition-delay: 0.4s; }
+.crew-item.reveal:nth-child(9) { transition-delay: 0.45s; }
+.crew-item.reveal:nth-child(10) { transition-delay: 0.5s; }
+.crew-item.reveal:nth-child(11) { transition-delay: 0.55s; }
+.crew-item.reveal:nth-child(12) { transition-delay: 0.6s; }
+
+/* Ticket details stagger */
+.ticket-detail.reveal:nth-child(1) { transition-delay: 0.05s; }
+.ticket-detail.reveal:nth-child(2) { transition-delay: 0.15s; }
+.ticket-detail.reveal:nth-child(3) { transition-delay: 0.25s; }
 
 .highlight-item.reveal:nth-child(1) { transition-delay: 0s; }
 .highlight-item.reveal:nth-child(2) { transition-delay: 0.15s; }
 .highlight-item.reveal:nth-child(3) { transition-delay: 0.3s; }
+
+/* Subtle glow pulse for the entradas CTA buttons */
+@keyframes ctaGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(59, 125, 255, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(59, 125, 255, 0.5);
+  }
+}
+
+.btn-glow {
+  animation: ctaGlow 3s ease-in-out infinite;
+}
+
+/* Smoother hover lift on cast cards */
+.cast-card {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cast-card:hover {
+  transform: translateY(-6px);
+}
+
+/* Subtle hover on crew items */
+.crew-item {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.crew-item:hover {
+  transform: translateY(-3px);
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
+
+  .btn-glow {
+    animation: none;
+  }
+}
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
@@ -1010,6 +1111,7 @@ img {
   }
 
   .crew-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
   }
 }
