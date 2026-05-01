@@ -781,6 +781,54 @@ img {
   width: 100%;
   height: 100%;
   border: 0;
+  pointer-events: none;
+}
+
+.teaser-mute-toggle {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  z-index: 5;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(10, 10, 26, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+  opacity: 0.85;
+}
+
+.teaser-mute-toggle:hover {
+  background: rgba(59, 125, 255, 0.6);
+  border-color: rgba(255, 255, 255, 0.4);
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.teaser-mute-toggle svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+
+.teaser-mute-toggle .icon-unmuted {
+  display: none;
+}
+
+.teaser-mute-toggle.is-unmuted .icon-muted {
+  display: none;
+}
+
+.teaser-mute-toggle.is-unmuted .icon-unmuted {
+  display: block;
 }
 
 @media (max-width: 768px) {
