@@ -1125,11 +1125,11 @@ img {
   }
 
   .hero-content {
-    position: relative;
-    bottom: auto;
-    left: auto;
-    transform: none;
-    margin-top: -42%;
+    position: absolute;
+    bottom: 37%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 0;
     z-index: 3;
   }
 
