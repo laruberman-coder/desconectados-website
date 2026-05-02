@@ -226,7 +226,7 @@ img {
 
 .hero-content {
   position: absolute;
-  bottom: 14%;
+  bottom: 30%;
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
@@ -1134,7 +1134,7 @@ img {
 
   .hero-content {
     position: absolute;
-    bottom: 9%;
+    bottom: 26%;
     left: 50%;
     transform: translateX(-50%);
     margin-top: 0;
