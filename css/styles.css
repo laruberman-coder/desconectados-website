@@ -1214,7 +1214,7 @@ img {
 /* ===== EN LOS MEDIOS - PRESS VIDEOS ===== */
 .press-videos {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   margin-top: 40px;
 }
@@ -1242,9 +1242,9 @@ img {
   height: 100%;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 700px) {
   .press-videos {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     gap: 12px;
   }
 }
