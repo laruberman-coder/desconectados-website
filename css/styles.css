@@ -1211,6 +1211,44 @@ img {
   }
 }
 
+/* ===== EN LOS MEDIOS - PRESS VIDEOS ===== */
+.press-videos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.press-video-item {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 */
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(60, 100, 255, 0.2);
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.press-video-item:hover {
+  border-color: rgba(60, 100, 255, 0.6);
+  transform: translateY(-3px);
+}
+
+.press-video-item iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 900px) {
+  .press-videos {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+}
+
 @media (max-width: 480px) {
   .cast-grid {
     grid-template-columns: repeat(2, 1fr);
