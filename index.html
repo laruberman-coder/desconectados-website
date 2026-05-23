@@ -437,6 +437,15 @@
       if (!ids.length) return;
       const videoId = ids[Math.floor(Math.random() * ids.length)];
 
+      // Show YouTube thumbnail while video loads
+      wrap.style.backgroundImage = `url(https://img.youtube.com/vi/${videoId}/maxresdefault.jpg)`;
+
+      // Play hint button
+      const playHint = document.createElement('div');
+      playHint.className = 'teaser-play-hint';
+      playHint.innerHTML = '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>';
+      wrap.appendChild(playHint);
+
       let player = null;
       let apiLoaded = false;
       let pendingPlay = false;
@@ -477,6 +486,9 @@
               }
             },
             onStateChange: function(e) {
+              if (e.data === YT.PlayerState.PLAYING) {
+                wrap.classList.add('is-playing');
+              }
               // Fallback loop in case loop param doesn't trigger
               if (e.data === YT.PlayerState.ENDED) {
                 player.seekTo(0);

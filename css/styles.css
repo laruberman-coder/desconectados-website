@@ -776,10 +776,52 @@ img {
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
-  background: #000;
+  background: #000 center / cover no-repeat;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 0 40px rgba(59, 125, 255, 0.15);
+}
+
+/* Thumbnail overlay — shown before video plays */
+.teaser-video::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.45) 100%);
+  z-index: 1;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+}
+
+/* Play button shown before video loads */
+.teaser-play-hint {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 68px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(255, 0, 0, 0.85);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+.teaser-play-hint svg {
+  width: 28px;
+  height: 28px;
+  fill: #fff;
+}
+
+/* Hide overlay once video is playing */
+.teaser-video.is-playing::before,
+.teaser-video.is-playing .teaser-play-hint {
+  opacity: 0;
 }
 
 .teaser-video iframe {
