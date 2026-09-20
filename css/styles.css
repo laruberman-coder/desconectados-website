@@ -105,6 +105,19 @@ img {
   box-shadow: 0 0 20px rgba(59, 125, 255, 0.4);
 }
 
+.nav-ig {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.8);
+  transition: color 0.3s, transform 0.2s;
+}
+
+.nav-ig:hover {
+  color: #4d8eff;
+  transform: scale(1.1);
+}
+
 .nav-hamburger {
   display: none;
   flex-direction: column;
@@ -898,6 +911,17 @@ img {
   text-align: center;
 }
 
+.contact-email {
+  color: #4d8eff;
+  border-bottom: 1px solid rgba(77, 142, 255, 0.4);
+  transition: color 0.3s, border-color 0.3s;
+}
+
+.contact-email:hover {
+  color: #7fa9ff;
+  border-color: #7fa9ff;
+}
+
 .social-links {
   display: flex;
   justify-content: center;
@@ -1134,7 +1158,8 @@ img {
   }
 
   .nav-links,
-  .btn-nav-tickets {
+  .btn-nav-tickets,
+  .nav-ig {
     display: none;
   }
 
