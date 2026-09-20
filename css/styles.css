@@ -1309,6 +1309,63 @@ img {
   height: 100%;
 }
 
+.press-article-item {
+  display: block;
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 to match videos */
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(60, 100, 255, 0.2);
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.press-article-item:hover {
+  border-color: rgba(60, 100, 255, 0.6);
+  transform: translateY(-3px);
+}
+
+.press-article-item img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.press-article-overlay {
+  position: absolute;
+  inset: 0;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 45%, rgba(0, 0, 0, 0.55) 70%, rgba(0, 0, 0, 0.9) 100%);
+  color: #fff;
+}
+
+.press-article-source {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 500;
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #4d8eff;
+  margin-bottom: 6px;
+}
+
+.press-article-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+  line-height: 1.35;
+  color: #fff;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 @media (max-width: 700px) {
   .press-videos {
     grid-template-columns: 1fr;
