@@ -1399,3 +1399,69 @@ img {
     gap: 15px;
   }
 }
+
+/* ===== GALERIA DEL SHOW (marquee horizontal) ===== */
+.gallery-section {
+  padding: 50px 0 60px;
+  position: relative;
+  overflow: hidden;
+  background-color: #0a0a1a;
+}
+
+.gallery-fade {
+  position: absolute;
+  top: 50px;
+  bottom: 60px;
+  width: 90px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.gallery-fade-left {
+  left: 0;
+  background: linear-gradient(to right, #0a0a1a 0%, rgba(10, 10, 26, 0) 100%);
+}
+
+.gallery-fade-right {
+  right: 0;
+  background: linear-gradient(to left, #0a0a1a 0%, rgba(10, 10, 26, 0) 100%);
+}
+
+.gallery-track {
+  display: flex;
+  gap: 14px;
+  width: max-content;
+  animation: galleryMarquee 90s linear infinite;
+  will-change: transform;
+}
+
+.gallery-section:hover .gallery-track {
+  animation-play-state: paused;
+}
+
+.gallery-track img {
+  height: 320px;
+  width: auto;
+  display: block;
+  border-radius: 8px;
+  flex-shrink: 0;
+  object-fit: cover;
+  border: 1px solid rgba(60, 100, 255, 0.15);
+}
+
+@keyframes galleryMarquee {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+
+@media (max-width: 768px) {
+  .gallery-section { padding: 40px 0 50px; }
+  .gallery-fade { top: 40px; bottom: 50px; width: 40px; }
+  .gallery-track { gap: 10px; animation-duration: 70s; }
+  .gallery-track img { height: 220px; border-radius: 6px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery-track { animation: none; }
+  .gallery-section { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+}
