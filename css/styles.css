@@ -80,6 +80,7 @@ img {
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.7);
+  white-space: nowrap;
   transition: color 0.3s;
 }
 
@@ -97,6 +98,7 @@ img {
   background: linear-gradient(135deg, #1a4eff, #3b7dff);
   padding: 10px 24px;
   border-radius: 50px;
+  white-space: nowrap;
   transition: transform 0.2s, box-shadow 0.3s;
 }
 
@@ -247,6 +249,22 @@ img {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.hero-dates {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #fff;
+  white-space: nowrap;
+  margin-bottom: 18px;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.9);
+}
+
+#sobre .section {
+  padding-top: 60px;
 }
 
 /* ===== CTA BUTTONS ===== */
@@ -1152,6 +1170,21 @@ img {
 }
 
 /* ===== RESPONSIVE ===== */
+/* El header completo necesita ~834px: por debajo, los links pasan al menu hamburguesa */
+@media (max-width: 900px) {
+  .nav-links {
+    display: none;
+  }
+
+  .nav-hamburger {
+    display: flex;
+  }
+
+  .mobile-menu {
+    display: flex;
+  }
+}
+
 @media (max-width: 768px) {
   .site-header {
     padding: 14px 20px;
@@ -1206,6 +1239,16 @@ img {
     transform: translateX(-50%);
     margin-top: 0;
     z-index: 3;
+  }
+
+  .hero-dates {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    margin-bottom: 12px;
+  }
+
+  #sobre .section {
+    padding-top: 40px;
   }
 
   .hero::before {
