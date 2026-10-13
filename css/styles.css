@@ -230,6 +230,7 @@ img {
   background-position: center;
   background-repeat: no-repeat;
   z-index: 1;
+  container-type: inline-size;
 }
 
 .hero-overlay {
@@ -251,16 +252,35 @@ img {
   align-items: center;
 }
 
+/* En desktop va en dos renglones dentro del telefono: el tamaño sigue al
+   ancho de la imagen del hero (cqw), igual que el telefono */
 .hero-dates {
   font-family: 'Oswald', sans-serif;
   font-weight: 500;
-  font-size: 0.95rem;
-  letter-spacing: 0.2em;
+  font-size: max(10px, 1.1cqw);
+  line-height: 1.6;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
+  text-align: center;
   color: #fff;
   white-space: nowrap;
-  margin-bottom: 18px;
+  margin-bottom: 1.2cqw;
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.9);
+}
+
+.hero-dates span {
+  display: block;
+}
+
+@media (min-width: 769px) {
+  .hero-content .btn-primary {
+    font-size: 0.95rem;
+    padding: 16px 44px;
+  }
+}
+
+.hero-dates .hero-dates-sep {
+  display: none;
 }
 
 #sobre .section {
@@ -1243,8 +1263,14 @@ img {
 
   .hero-dates {
     font-size: 11px;
+    line-height: 1.4;
     letter-spacing: 0.18em;
     margin-bottom: 12px;
+  }
+
+  .hero-dates span,
+  .hero-dates .hero-dates-sep {
+    display: inline;
   }
 
   #sobre .section {
