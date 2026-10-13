@@ -373,21 +373,6 @@ img {
   font-weight: 500;
 }
 
-.section-pullquote {
-  font-family: 'Oswald', sans-serif;
-  font-weight: 500;
-  font-size: 1rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: #4d8eff;
-  text-align: center;
-  max-width: 800px;
-  margin: -10px auto 30px;
-  padding: 14px 20px;
-  border-top: 1px solid rgba(77, 142, 255, 0.25);
-  border-bottom: 1px solid rgba(77, 142, 255, 0.25);
-}
-
 /* ===== HIGHLIGHTS ===== */
 .highlight-box {
   display: grid;
