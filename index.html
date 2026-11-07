@@ -11,57 +11,6 @@
     gtag('js', new Date());
     gtag('config', 'G-B7B6DJH3WZ');
   </script>
-
-  <!-- A/B: posicion de "En los medios" ===
-       A = control (prensa despues de elenco, orden actual del DOM)
-       B = variante (prensa movida arriba, justo antes de #entradas)
-       50/50 por localStorage. Se registra en GA4 como user_property
-       `experiment_order` y evento `exp_order_view`. -->
-  <script>
-    (function () {
-      var KEY = 'exp_order_variant';
-      var v;
-      try { v = localStorage.getItem(KEY); } catch (e) {}
-      if (v !== 'A' && v !== 'B') {
-        v = Math.random() < 0.5 ? 'A' : 'B';
-        try { localStorage.setItem(KEY, v); } catch (e) {}
-      }
-      window.__expOrder = v;
-      document.documentElement.setAttribute('data-exp-order', v.toLowerCase());
-      function applyOrder() {
-        if (v !== 'B') return;
-        var prensa = document.getElementById('prensa');
-        var entradas = document.getElementById('entradas');
-        if (prensa && entradas && entradas.parentNode) {
-          entradas.parentNode.insertBefore(prensa, entradas);
-        }
-      }
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', applyOrder);
-      } else {
-        applyOrder();
-      }
-      function send() {
-        if (typeof window.gtag === 'function') {
-          gtag('set', 'user_properties', { experiment_order: v });
-          gtag('event', 'exp_order_view', { variant: v });
-        } else {
-          setTimeout(send, 100);
-        }
-      }
-      send();
-    })();
-
-    // Helper global para los botones de compra
-    function trackEntradas(location) {
-      if (typeof window.gtag === 'function') {
-        gtag('event', 'click_entradas', {
-          location: location,
-          experiment_order: window.__expOrder || ''
-        });
-      }
-    }
-  </script>
   <title>Desconectados - El Musical</title>
   <meta name="description" content="Desconectados es el musical original escrito, interpretado y producido por adolescentes uruguayos. Una producción de Las Ophelias. Porque desconectados, también conectamos.">
 
@@ -105,8 +54,8 @@
     <nav class="nav-main">
       <ul class="nav-links">
         <li><a href="#sobre">LA OBRA</a></li>
-        <li><a href="#elenco">ELENCO</a></li>
         <li><a href="#prensa">PRENSA</a></li>
+        <li><a href="#elenco">ELENCO</a></li>
         <li><a href="#contacto">CONTACTO</a></li>
       </ul>
       <a href="https://www.instagram.com/desconectados_elmusical/" target="_blank" class="nav-ig" aria-label="Instagram">
@@ -123,8 +72,8 @@
   <div class="mobile-menu" id="mobileMenu">
     <ul>
       <li><a href="#sobre">LA OBRA</a></li>
-      <li><a href="#elenco">ELENCO</a></li>
       <li><a href="#prensa">PRENSA</a></li>
+      <li><a href="#elenco">ELENCO</a></li>
       <li><a href="#contacto">CONTACTO</a></li>
       <li><a href="https://www.instagram.com/desconectados_elmusical/" target="_blank">INSTAGRAM</a></li>
       <li><span class="btn-primary btn-disabled">VOLVEMOS MÁS ADELANTE</span></li>
@@ -200,6 +149,72 @@
       <img src="images/gallery/show-09.webp" alt="" aria-hidden="true" loading="lazy" width="960" height="640">
       <img src="images/gallery/show-10.webp" alt="" aria-hidden="true" loading="lazy" width="960" height="640">
       <img src="images/gallery/show-11.webp" alt="" aria-hidden="true" loading="lazy" width="960" height="640">
+    </div>
+  </section>
+
+  <!-- EN LOS MEDIOS -->
+  <section class="section-darker" id="prensa">
+    <div class="section">
+      <h2 class="section-title">En los Medios</h2>
+      <div class="section-divider"></div>
+      <div class="press-videos">
+        <div class="press-video-item">
+          <iframe src="https://www.youtube.com/embed/K1Yobyzq8GQ" title="Desconectados en los medios" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <a href="https://www.elobservador.com.uy/cultura-y-espectaculos/las-ophelias-estreno-desconectados-una-obra-creada-adolescentes-una-preocupacion-que-atraviesa-al-publico-n6043677" target="_blank" rel="noopener" class="press-article-item">
+          <img src="images/press/observador.webp" alt="Nota de El Observador sobre Desconectados" loading="lazy">
+          <div class="press-article-overlay">
+            <span class="press-article-source">El Observador</span>
+            <span class="press-article-title">Las Ophelias estrenó Desconectados: una obra creada por adolescentes sobre una preocupación que atraviesa al público</span>
+          </div>
+        </a>
+        <div class="press-video-item">
+          <iframe src="https://www.youtube.com/embed/xy6LAGVYTLY" title="Desconectados en los medios" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="press-video-item">
+          <iframe src="https://www.youtube.com/embed/mHfrtG5Tr0k" title="Desconectados en los medios" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="press-video-item">
+          <iframe src="https://www.youtube.com/embed/Mj01YxPCmXU" title="Desconectados en los medios" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <a href="https://ladiaria.com.uy/cultura/articulo/2026/5/la-compania-de-adolescentes-las-ophelias-estreno-desconectados/" target="_blank" rel="noopener" class="press-article-item">
+          <img src="images/press/ladiaria.webp" alt="Nota de la diaria sobre Desconectados" loading="lazy">
+          <div class="press-article-overlay">
+            <span class="press-article-source">la diaria</span>
+            <span class="press-article-title">La compañía de adolescentes Las Ophelias estrenó Desconectados</span>
+          </div>
+        </a>
+        <div class="press-video-item">
+          <iframe src="https://www.youtube.com/embed/UAlbdoM-rf8" title="Desconectados en los medios" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="press-video-item">
+          <iframe src="https://www.youtube.com/embed/D0jnkKlplNs" title="Desconectados en los medios" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="press-video-item">
+          <iframe src="https://www.youtube.com/embed/lOUPElUe9GQ" title="Desconectados en los medios" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <a href="https://www.busqueda.com.uy/sociales/se-estreno-desconectados-un-musical-protagonizado-adolescentes-n5413025" target="_blank" rel="noopener" class="press-article-item">
+          <img src="images/press/busqueda.webp" alt="Nota de Galería / Búsqueda sobre Desconectados" loading="lazy">
+          <div class="press-article-overlay">
+            <span class="press-article-source">Galería · Búsqueda</span>
+            <span class="press-article-title">Se estrenó ‘Desconectados’, un musical protagonizado por adolescentes</span>
+          </div>
+        </a>
+        <a href="https://www.facebook.com/TVCIUDADuy/videos/mirámontevideo-desconectados-el-musical-llega-al-teatro-stella-ditalia-entre-hum/1603351904094382/" target="_blank" rel="noopener" class="press-article-item">
+          <img src="images/press/tvciudad.webp" alt="Nota de Mirá Montevideo, TV Ciudad, sobre Desconectados" loading="lazy">
+          <div class="press-article-overlay">
+            <span class="press-article-source">TV Ciudad · Mirá Montevideo</span>
+            <span class="press-article-title">Desconectados, el musical, llega al Teatro Stella d’Italia</span>
+          </div>
+        </a>
+        <a href="https://mediospublicos.uy/desconectados-juventud-redes-y-vinculos-en-la-nueva-apuesta-de-las-ophelias/" target="_blank" rel="noopener" class="press-article-item">
+          <img src="images/press/mediospublicos.webp" alt="Nota de Medios Publicos UY sobre Desconectados" loading="lazy">
+          <div class="press-article-overlay">
+            <span class="press-article-source">Medios Públicos · El Tungue Lé</span>
+            <span class="press-article-title">Desconectados: juventud, redes y vínculos en la nueva apuesta de Las Ophelias</span>
+          </div>
+        </a>
+      </div>
     </div>
   </section>
 
@@ -315,72 +330,6 @@
             <img src="images/logo-cast-card.webp" alt="Desconectados El Musical">
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- EN LOS MEDIOS -->
-  <section class="section-darker" id="prensa">
-    <div class="section">
-      <h2 class="section-title">En los Medios</h2>
-      <div class="section-divider"></div>
-      <div class="press-videos">
-        <div class="press-video-item">
-          <iframe src="https://www.youtube.com/embed/K1Yobyzq8GQ" title="Desconectados en los medios" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-        </div>
-        <a href="https://www.elobservador.com.uy/cultura-y-espectaculos/las-ophelias-estreno-desconectados-una-obra-creada-adolescentes-una-preocupacion-que-atraviesa-al-publico-n6043677" target="_blank" rel="noopener" class="press-article-item">
-          <img src="images/press/observador.webp" alt="Nota de El Observador sobre Desconectados" loading="lazy">
-          <div class="press-article-overlay">
-            <span class="press-article-source">El Observador</span>
-            <span class="press-article-title">Las Ophelias estrenó Desconectados: una obra creada por adolescentes sobre una preocupación que atraviesa al público</span>
-          </div>
-        </a>
-        <div class="press-video-item">
-          <iframe src="https://www.youtube.com/embed/xy6LAGVYTLY" title="Desconectados en los medios" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-        </div>
-        <div class="press-video-item">
-          <iframe src="https://www.youtube.com/embed/mHfrtG5Tr0k" title="Desconectados en los medios" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-        </div>
-        <div class="press-video-item">
-          <iframe src="https://www.youtube.com/embed/Mj01YxPCmXU" title="Desconectados en los medios" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-        </div>
-        <a href="https://ladiaria.com.uy/cultura/articulo/2026/5/la-compania-de-adolescentes-las-ophelias-estreno-desconectados/" target="_blank" rel="noopener" class="press-article-item">
-          <img src="images/press/ladiaria.webp" alt="Nota de la diaria sobre Desconectados" loading="lazy">
-          <div class="press-article-overlay">
-            <span class="press-article-source">la diaria</span>
-            <span class="press-article-title">La compañía de adolescentes Las Ophelias estrenó Desconectados</span>
-          </div>
-        </a>
-        <div class="press-video-item">
-          <iframe src="https://www.youtube.com/embed/UAlbdoM-rf8" title="Desconectados en los medios" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-        </div>
-        <div class="press-video-item">
-          <iframe src="https://www.youtube.com/embed/D0jnkKlplNs" title="Desconectados en los medios" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-        </div>
-        <div class="press-video-item">
-          <iframe src="https://www.youtube.com/embed/lOUPElUe9GQ" title="Desconectados en los medios" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-        </div>
-        <a href="https://www.busqueda.com.uy/sociales/se-estreno-desconectados-un-musical-protagonizado-adolescentes-n5413025" target="_blank" rel="noopener" class="press-article-item">
-          <img src="images/press/busqueda.webp" alt="Nota de Galería / Búsqueda sobre Desconectados" loading="lazy">
-          <div class="press-article-overlay">
-            <span class="press-article-source">Galería · Búsqueda</span>
-            <span class="press-article-title">Se estrenó ‘Desconectados’, un musical protagonizado por adolescentes</span>
-          </div>
-        </a>
-        <a href="https://www.facebook.com/TVCIUDADuy/videos/mirámontevideo-desconectados-el-musical-llega-al-teatro-stella-ditalia-entre-hum/1603351904094382/" target="_blank" rel="noopener" class="press-article-item">
-          <img src="images/press/tvciudad.webp" alt="Nota de Mirá Montevideo, TV Ciudad, sobre Desconectados" loading="lazy">
-          <div class="press-article-overlay">
-            <span class="press-article-source">TV Ciudad · Mirá Montevideo</span>
-            <span class="press-article-title">Desconectados, el musical, llega al Teatro Stella d’Italia</span>
-          </div>
-        </a>
-        <a href="https://mediospublicos.uy/desconectados-juventud-redes-y-vinculos-en-la-nueva-apuesta-de-las-ophelias/" target="_blank" rel="noopener" class="press-article-item">
-          <img src="images/press/mediospublicos.webp" alt="Nota de Medios Publicos UY sobre Desconectados" loading="lazy">
-          <div class="press-article-overlay">
-            <span class="press-article-source">Medios Públicos · El Tungue Lé</span>
-            <span class="press-article-title">Desconectados: juventud, redes y vínculos en la nueva apuesta de Las Ophelias</span>
-          </div>
-        </a>
       </div>
     </div>
   </section>
