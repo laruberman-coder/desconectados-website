@@ -399,7 +399,6 @@ img {
 }
 
 .btn-disabled {
-  opacity: 0.6;
   cursor: default;
   pointer-events: none;
   box-shadow: none;
